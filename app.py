@@ -4,8 +4,13 @@ from pydantic import BaseModel
 from typing import List, Dict, Tuple
 import itertools
 
+from fastapi import FastAPI
 
 app = FastAPI()
+
+@app.get("/")
+def hello():
+    return {"message": "FastAPI is working!"}
 
 # Enable CORS for frontend (localhost:3000)
 app.add_middleware(
